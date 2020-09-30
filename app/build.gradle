@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    signingConfigs {
+        config {
+            storeFile file('E:/dckj.jks')
+            storePassword '123456'
+            keyPassword '123456'
+            keyAlias = 'key0'
+        }
+    }
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.dckj.runnablea"
+        minSdkVersion 16
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.config
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.navigation:navigation-fragment:2.3.0'
+    implementation 'androidx.navigation:navigation-ui:2.3.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.47'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0'
+    //Retrofit2
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    //RxJava
+    implementation 'io.reactivex.rxjava2:rxjava:2.1.9'
+    //RxAndroid
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    //Retrofit 支持Rxjava 的支持库
+    implementation 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.14.0'
+    //gson 解析器
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    //拦截器
+    implementation 'com.orhanobut:logger:2.2.0'
+
+    //数据解析
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    //Android SQLite操作框架
+    implementation 'org.litepal.guolindev:core:3.1.1'
+    implementation 'com.belerweb:pinyin4j:2.5.0'
+    //分割线
+    implementation 'com.gavin.com.library:stickyDecoration:1.5.2'
+}

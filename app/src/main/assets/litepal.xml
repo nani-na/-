@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <!-- 数据库名称 -->
+    <dbname value="db_demo"/>
+    <!-- 数据库版本 -->
+    <version value="2"/>
+    <!-- 映射模型 -->
+    <list>
+        <mapping class="com.dckj.runnablea.ui.home.bean.CityBean"/>
+    </list>
+</litepal>
